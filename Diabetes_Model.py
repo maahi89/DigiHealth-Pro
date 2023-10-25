@@ -13,7 +13,6 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 
-
 #data collection and classification
 #loading the diabetes dataset to a pandas Dataframe
 diabetes_dataset = pd.read_csv('/content/diabetes.csv')
