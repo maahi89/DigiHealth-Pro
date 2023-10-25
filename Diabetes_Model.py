@@ -1,11 +1,11 @@
-// this file contains the code for diabetes model
-// IN THIS MODEL WE HAVE USED RFC (Random forest classifier) algorithm
-// here in the dataset 0 REPRESENTS NOT DIABETIC and 1 REPRESENT DIABETIC 
+#this file contains the code for diabetes model
+#IN THIS MODEL WE HAVE USED RFC (Random forest classifier) algorithm
+#here in the dataset 0 REPRESENTS NOT DIABETIC and 1 REPRESENT DIABETIC 
 
-"EVERY LINE CONTAINING # AND // ARE COMMENT LINES.
+#"EVERY LINE CONTAINING # AND // ARE COMMENT LINES.
 
 
-// importing the dependencies
+#importing the dependencies
 import pandas as pd
 import numpy as np
 from sklearn.preprocessing import StandardScaler
@@ -14,7 +14,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 
 
-// data collection and classification
+#data collection and classification
 #loading the diabetes dataset to a pandas Dataframe
 diabetes_dataset = pd.read_csv('/content/diabetes.csv')
 
@@ -40,7 +40,7 @@ print(X)
 
 print(Y)
 
-// now we will standardise the data
+#now we will standardise the data
 
 scaler = StandardScaler()
 
@@ -58,29 +58,29 @@ Y = diabetes_dataset['Outcome']
 print(X)
 print(Y)
 
-// TRAINING, TESTING AND SPLITTING OF DATA
+#TRAINING, TESTING AND SPLITTING OF DATA
 
 X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size = 0.2, random_state=2)
 print (X.shape,X_train.shape, X_test.shape)
 
-// CREATING INSTANCE OF RANDOM FOREST
+#CREATING INSTANCE OF RANDOM FOREST
 rfc = RandomForestClassifier(n_estimators=100, random_state=42)
 
-//FITTING THE CLASSIFIER INTO THE TRAINING
+#FITTING THE CLASSIFIER INTO THE TRAINING
 rfc.fit(X_train, Y_train)
 
-//PREDICTING THE DATA
+#PREDICTING THE DATA
 rfc.fit(X_train, Y_train)
 
-//PREDICTING THE DATA
+#PREDICTING THE DATA
 predictions = rfc.predict(X_test)
 
-//CHECKING THE ACCURACY OF DATA
+#CHECKING THE ACCURACY OF DATA
 #ACCURACY CHECKING
 accuracy = accuracy_score(Y_test, predictions)
 print('Accuracy:', accuracy)
 
-//MAKING PREDICTIVE SYSTEM
+#MAKING PREDICTIVE SYSTEM
 input_data = (1,85,66,29,0,26.6,0.351,31)
 
 #changing the input_data into numpy array
@@ -100,7 +100,7 @@ else:
   print("THE PERSON IS DIABETIC")
 
 
-//IN THE LAST WE WILL SAVE THE PREDICTIVE MODEL
+#IN THE LAST WE WILL SAVE THE PREDICTIVE MODEL
 import pickle
 filename = 'diabetes_model.pkl'
 pickle.dump((rfc,scaler), open(filename, 'wb'))
